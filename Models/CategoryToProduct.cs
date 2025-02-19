@@ -1,0 +1,8 @@
+﻿namespace BookStore.Models
+{
+    public class CategoryToProduct
+    {
+        public int CategoryId { get; set; }
+        public int ProductId { get; set; }
+    }
+}
