@@ -1,7 +1,11 @@
+using BookStore.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<BookStoreContext>(options => { options.UseSqlServer("Data Source =.;Initial Catalog=BookStore_DB;Integrated Security=true;TrustServerCertificate=True"); });
 
 var app = builder.Build();
 
