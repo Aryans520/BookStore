@@ -11,9 +11,31 @@ namespace BookStore.Data
         }
 
         public DbSet<Category> Categories { get; set; }
+        public DbSet<CategoryToProduct> CategoryToProducts { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Item> Items { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<CategoryToProduct>()
+               .HasKey(t => new { t.ProductId, t.CategoryId });
+
+            //modelBuilder.Entity<Product>(p => 
+            //{
+            //    p.HasKey(w => new { w.Id, w.ItemdId});
+            //    p.OwnsOne<Item>(w => w.Item);
+            //    p.HasOne<Item>(w => w.Item).WithOne(w => w.Product).HasForeignKey<Item>(w => w.Id);
+
+
+            //  });
+            modelBuilder.Entity<Item>(i =>
+            {
+                i.Property(w => w.Price).HasColumnType("Money");
+                i.HasKey(w => w.Id);
+            });
+            modelBuilder.Entity<CategoryToProduct>().HasKey(t => new {t.ProductId,t.CategoryId});
+            #region seedData
             modelBuilder.Entity<Category>().HasData(new Category()
             {
                 Id = 1,
@@ -83,7 +105,9 @@ namespace BookStore.Data
 
 
             );
-               
+            #endregion
+            base.OnModelCreating(modelBuilder);
+
         }
     }
 }
