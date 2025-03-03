@@ -3,6 +3,7 @@ using BookStore.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookStore.Migrations
 {
     [DbContext(typeof(BookStoreContext))]
-    partial class BookStoreContextModelSnapshot : ModelSnapshot
+    [Migration("20250303080315_AddSomeTables")]
+    partial class AddSomeTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -123,38 +126,6 @@ namespace BookStore.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("CategoryToProducts");
-
-                    b.HasData(
-                        new
-                        {
-                            ProductId = 1,
-                            CategoryId = 1
-                        },
-                        new
-                        {
-                            ProductId = 2,
-                            CategoryId = 2
-                        },
-                        new
-                        {
-                            ProductId = 3,
-                            CategoryId = 3
-                        },
-                        new
-                        {
-                            ProductId = 1,
-                            CategoryId = 4
-                        },
-                        new
-                        {
-                            ProductId = 2,
-                            CategoryId = 5
-                        },
-                        new
-                        {
-                            ProductId = 3,
-                            CategoryId = 6
-                        });
                 });
 
             modelBuilder.Entity("BookStore.Models.Item", b =>
@@ -174,26 +145,6 @@ namespace BookStore.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Items");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Price = 85000m,
-                            QuantityInStock = 5
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Price = 115000m,
-                            QuantityInStock = 8
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Price = 320000m,
-                            QuantityInStock = 3
-                        });
                 });
 
             modelBuilder.Entity("BookStore.Models.Product", b =>
@@ -221,29 +172,6 @@ namespace BookStore.Migrations
                         .IsUnique();
 
                     b.ToTable("Products");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "این توضیحات جهت تست کردن می باشد و هیچگونه استفاده دیگری از آن ممنون می‌باشد",
-                            ItemId = 2,
-                            Name = "مزرعه حیوانات"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Description = "این توضیحات جهت تست کردن می باشد و هیچگونه استفاده دیگری از آن ممنون می‌باشد",
-                            ItemId = 3,
-                            Name = "1984"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Description = "این توضیحات جهت تست کردن می باشد و هیچگونه استفاده دیگری از آن ممنون می‌باشد",
-                            ItemId = 1,
-                            Name = "انسان خردمند"
-                        });
                 });
 
             modelBuilder.Entity("BookStore.Models.CategoryToProduct", b =>

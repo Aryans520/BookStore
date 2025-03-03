@@ -15,8 +15,9 @@ namespace BookStore.Models
         public string Name { get; set; }
         public string Description { get; set; }
         //public List<Category> Categories { get; set; }
-        public int ItemdId { get; set; }
         public ICollection<CategoryToProduct> CategoryToProducts { get; set; }
-        public Item Item { get; set; }
+        public int ItemId { get; set; } //ForeignKey
+
+        public Item Item { get; set; } //Navigation property
     }
 }
