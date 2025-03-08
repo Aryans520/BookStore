@@ -112,13 +112,16 @@ namespace BookStore.Data
             modelBuilder.Entity<Item>().HasData(
                 new Item() { Id = 1, Price = 85000, QuantityInStock = 5 },
                 new Item() { Id = 2, Price = 115000, QuantityInStock = 8 },
-                new Item() { Id = 3, Price = 320000, QuantityInStock = 3 }
+                new Item() { Id = 3, Price = 320000, QuantityInStock = 3 },
+                new Item() { Id = 4, Price = 320000, QuantityInStock = 5 },
+                new Item() { Id = 5, Price = 320000, QuantityInStock = 6 }
             );
             modelBuilder.Entity<Product>().HasData(
                 new Product() { Id = 1, ItemId = 2, Name = "مزرعه حیوانات", Description = "این توضیحات جهت تست کردن می باشد و هیچگونه استفاده دیگری از آن ممنون می‌باشد" },
                 new Product() { Id = 2, ItemId = 3, Name = "1984", Description = "این توضیحات جهت تست کردن می باشد و هیچگونه استفاده دیگری از آن ممنون می‌باشد" },
-                new Product() { Id = 3, ItemId = 1, Name = "انسان خردمند", Description = "این توضیحات جهت تست کردن می باشد و هیچگونه استفاده دیگری از آن ممنون می‌باشد" }
-
+                new Product() { Id = 3, ItemId = 1, Name = "انسان خردمند", Description = "این توضیحات جهت تست کردن می باشد و هیچگونه استفاده دیگری از آن ممنون می‌باشد" },
+                new Product() { Id = 4, ItemId = 4, Name = "سرگذشت ندیمه", Description = "کتاب «سرگذشت ندیمه» اثر مارگارت اتوود یک کتاب ضدآرمان‌شهری تخیلی است که برای اولین بار در سال ۱۹۸۵ منتشر شده است" },
+                new Product() { Id = 5, ItemId = 5, Name = "تس دوربرویل", Description = "تس ماجرای دختری زیبا و معصوم است که از شهر کوچکشان به شهری بزرگتر می‌رود تا خانواده واقعیش را ببیند." }
                 );
             modelBuilder.Entity<CategoryToProduct>().HasData(
                 new CategoryToProduct() { CategoryId = 1, ProductId = 1 },
@@ -126,7 +129,10 @@ namespace BookStore.Data
                 new CategoryToProduct() { CategoryId = 3, ProductId = 3 },
                 new CategoryToProduct() { CategoryId = 4, ProductId = 1 },
                 new CategoryToProduct() { CategoryId = 5, ProductId = 2 },
+                new CategoryToProduct() { CategoryId = 6, ProductId = 4 },
+                new CategoryToProduct() { CategoryId = 6, ProductId = 5 },
                 new CategoryToProduct() { CategoryId = 6, ProductId = 3 }
+
 
 
                 );
